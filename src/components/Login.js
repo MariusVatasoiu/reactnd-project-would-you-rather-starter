@@ -21,6 +21,7 @@ class Login extends Component {
 
   render() {
     const { toHome } = this.state;
+    const { users } = this.props;
 
     if (toHome) {
       return <Redirect to="/" />;
@@ -32,13 +33,19 @@ class Login extends Component {
 
         <select value={this.state.user} onChange={this.handleChange}>
           <option>-Please select an user -</option>
-          <option value="sarahedo">Sarah Edo</option>
-          <option value="tylermcginnis">Tyler McGinnis</option>
-          <option value="johndoe">John Doe</option>
+          {users.map((
+            user,
+          ) => (<option key={user.id} value={user.id}>{user.name}</option>))}
         </select>
       </div>
     );
   }
 }
 
-export default connect()(Login);
+function mapStateToProps({ users }) {
+  return {
+    users: Object.values(users),
+  };
+}
+
+export default connect(mapStateToProps)(Login);
