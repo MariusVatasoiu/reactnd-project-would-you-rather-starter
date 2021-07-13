@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
+import { connect } from "react-redux";
 
-function Nav() {
+function Nav(props) {
   return (
     <nav className="nav">
       <ul>
@@ -17,12 +18,22 @@ function Nav() {
             Leader Board
           </NavLink>
         </li>
-        <li>
-          <NavLink to="/login" activeClassName="active">Logout</NavLink>
-        </li>
+
+        {props.authedUser && (
+          <li>
+            <strong>{props.authedUser}</strong> |
+            <NavLink to="/login" activeClassName="active">Logout</NavLink>
+          </li>
+        )}
       </ul>
     </nav>
   );
 }
 
-export default Nav;
+function mapStateToProps({ authedUser }) {
+  return {
+    authedUser,
+  };
+}
+
+export default connect(mapStateToProps)(Nav);
