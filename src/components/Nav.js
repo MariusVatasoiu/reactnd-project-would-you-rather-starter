@@ -22,7 +22,7 @@ function Nav(props) {
 
         {props.authedUser && (
           <li>
-            <strong>{props.authedUser}</strong> |
+            <strong>{props.user.name}</strong> |
             <NavLink to="/login" activeClassName="active">Logout</NavLink>
           </li>
         )}

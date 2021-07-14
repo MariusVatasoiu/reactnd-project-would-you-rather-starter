@@ -8,8 +8,8 @@ class QuestionResults extends Component {
     const oneVotes = question.optionOne.votes.length;
     const twoVotes = question.optionTwo.votes.length;
     const totalVotes = oneVotes + twoVotes;
-    const onePercentage = (oneVotes / totalVotes) * 100;
-    const twoPercentage = (twoVotes / totalVotes) * 100;
+    const onePercentage = parseInt((oneVotes / totalVotes) * 100);
+    const twoPercentage = parseInt((twoVotes / totalVotes) * 100);
     return (
       <div className="page">
         <h3>Asked by {author.name}</h3>

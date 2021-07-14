@@ -22,7 +22,6 @@ class NewQuestion extends Component {
       return;
     }
     const { dispatch } = this.props;
-    console.log(optionOne, optionTwo);
 
     dispatch(handleAddQuestion(optionOne, optionTwo));
 
