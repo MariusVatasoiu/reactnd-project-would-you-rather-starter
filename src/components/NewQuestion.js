@@ -1,6 +1,6 @@
 function NewQuestion() {
   return (
-    <div className="container">
+    <div className="page">
       <h1>New Question</h1>
       <h3>Create new question</h3>
       <p>Complete the question:</p>

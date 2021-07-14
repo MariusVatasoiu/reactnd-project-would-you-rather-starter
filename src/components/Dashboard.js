@@ -1,29 +1,58 @@
+import { Component } from "react";
 import { connect } from "react-redux";
 import QuestionPreview from "./QuestionPreview";
 
-function Dashboard(props) {
-  const { unansweredQuestions, answeredQuestions } = props;
-  console.log("unansweredQuestions", unansweredQuestions);
-  console.log("answeredQuestions", answeredQuestions);
-  return (
-    <div className="page">
-      <h1>Dashboard</h1>
-      <div className="dashboard">
-        <div>
-          <h2>Unanswered Questions</h2>
-          {unansweredQuestions.map((
-            q,
-          ) => (<QuestionPreview key={q.id} id={q.id} />))}
+class Dashboard extends Component {
+  state = { selectedView: "unanswared" };
+
+  changeView = (event) => {
+    console.log(event);
+    console.log(event.target.name);
+    this.setState({
+      selectedView: event.target.name,
+    });
+  };
+
+  render() {
+    const { selectedView } = this.state;
+    const { unansweredQuestions, answeredQuestions } = this.props;
+    return (
+      <div className="page">
+        <h1>Dashboard</h1>
+        <div className="dashboard-category">
+          <ul>
+            <li>
+              <button
+                name="unanswared"
+                className={selectedView === "unanswared" ? "view-active" : ""}
+                onClick={this.changeView}
+              >
+                Unanswared Questions
+              </button>
+            </li>
+            <li>
+              <button
+                name="answared"
+                className={selectedView === "answared" ? "view-active" : ""}
+                onClick={this.changeView}
+              >
+                Answer Questions
+              </button>
+            </li>
+          </ul>
         </div>
-        <div>
-          <h2>Answered Questions</h2>
-          {answeredQuestions.map((
+        <div className="dashboard-view">
+          {selectedView === "unanswared" && (unansweredQuestions.map((
             q,
-          ) => (<QuestionPreview key={q.id} id={q.id} />))}
+          ) => (<QuestionPreview key={q.id} id={q.id} />)))}
+
+          {selectedView === "answared" && (answeredQuestions.map((
+            q,
+          ) => (<QuestionPreview key={q.id} id={q.id} />)))}
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 function mapStateToProps({ authedUser, questions }) {

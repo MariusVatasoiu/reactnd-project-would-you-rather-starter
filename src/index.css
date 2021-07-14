@@ -12,6 +12,10 @@ body {
   margin: 0 auto;
   padding: 10px;
 }
+.page {
+  max-width: 600px;
+  margin: 0 auto;
+}
 
 .center {
   text-align: center;
@@ -50,6 +54,31 @@ li {
   max-height: 64px;
   border-radius: 50%;
 }
+
+/* dashboard */
+.dashboard-category ul {
+  display: flex;
+  justify-content: space-between;
+}
+.dashboard-category ul li {
+  padding: 0;
+  width: 50%;
+}
+.dashboard-category button {
+  width: 100%;
+  background: #d9dee2;
+  border: none;
+  font-size: 16px;
+  padding: 10px;
+}
+.dashboard-category button:hover {
+  cursor: pointer;
+}
+.dashboard-category button.view-active {
+  background: #bd8ee7;
+  color: #fff;
+}
+
 .voted {
   background-color: #d9f4d9;
 }

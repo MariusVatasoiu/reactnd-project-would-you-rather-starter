@@ -28,7 +28,7 @@ class Login extends Component {
     }
 
     return (
-      <div className="center">
+      <div className="page center">
         <h1>Login</h1>
 
         <select value={this.state.user} onChange={this.handleChange}>

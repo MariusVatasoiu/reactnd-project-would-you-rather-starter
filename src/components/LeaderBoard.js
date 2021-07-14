@@ -1,13 +1,12 @@
 import { connect } from "react-redux";
 
 function LeaderBoard(props) {
-  console.log("TOP", props.top);
   const { top, users } = props;
   return (
     <div className="page">
       <h1>Leader Board</h1>
 
-      {top.map((u) => (<section key={top.id} className="top">
+      {top.map((u) => (<section key={u.id} className="top">
         <h3>{users[u.id].name}</h3>
         <img
           className="avatar"
@@ -15,13 +14,11 @@ function LeaderBoard(props) {
           alt={users[u.id].name}
         />
         <p>Answered questions: {u.answered}</p>
-        <p>Answered questions: {u.created}</p>
+        <p>Created questions: {u.created}</p>
         <p>
           <strong>Score: {u.total}</strong>
         </p>
       </section>))}
-      <section className="top">
-      </section>
     </div>
   );
 }

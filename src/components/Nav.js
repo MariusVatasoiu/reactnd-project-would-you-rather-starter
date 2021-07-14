@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 
 function Nav(props) {
+  console.log(props.user);
   return (
     <nav className="nav">
       <ul>
@@ -9,7 +10,7 @@ function Nav(props) {
           <NavLink to="/" exact activeClassName="active">Home</NavLink>
         </li>
         <li>
-          <NavLink to="/new" activeClassName="active">
+          <NavLink to="/add" activeClassName="active">
             New Question
           </NavLink>
         </li>
@@ -30,9 +31,10 @@ function Nav(props) {
   );
 }
 
-function mapStateToProps({ authedUser }) {
+function mapStateToProps({ authedUser, users }) {
   return {
     authedUser,
+    user: users[authedUser],
   };
 }
 
