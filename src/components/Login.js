@@ -1,10 +1,9 @@
 import { Component } from "react";
 import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
 import { setAuthedUser } from "../actions/authedUser";
 
 class Login extends Component {
-  state = { user: "", toHome: false };
+  state = { user: "" };
 
   componentDidMount() {
     this.props.dispatch(setAuthedUser(null));
@@ -12,20 +11,16 @@ class Login extends Component {
 
   handleChange = (event) => {
     const user = event.target.value;
-    const { dispatch } = this.props;
-
-    this.setState({ user, toHome: user ? true : false });
+    const { dispatch, history, location } = this.props;
 
     dispatch(setAuthedUser(user));
+
+    const { from } = location.state || { from: { pathname: "/" } };
+    history.replace(from);
   };
 
   render() {
-    const { toHome } = this.state;
     const { users } = this.props;
-
-    if (toHome) {
-      return <Redirect to="/" />;
-    }
 
     return (
       <div className="page center">
