@@ -45,3 +45,11 @@ li {
   padding: 10px;
   text-decoration: none;
 }
+.avatar {
+  max-width: 64px;
+  max-height: 64px;
+  border-radius: 50%;
+}
+.voted {
+  background-color: #d9f4d9;
+}
