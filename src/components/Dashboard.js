@@ -6,8 +6,6 @@ class Dashboard extends Component {
   state = { selectedView: "unanswared" };
 
   changeView = (event) => {
-    console.log(event);
-    console.log(event.target.name);
     this.setState({
       selectedView: event.target.name,
     });

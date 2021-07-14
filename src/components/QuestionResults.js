@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 
 class QuestionResults extends Component {
   render() {
-    console.log("Q-ID", this.props.id);
     const { author, authedUser, question } = this.props;
     const oneVotes = question.optionOne.votes.length;
     const twoVotes = question.optionTwo.votes.length;

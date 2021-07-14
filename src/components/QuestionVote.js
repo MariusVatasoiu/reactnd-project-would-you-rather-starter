@@ -25,7 +25,6 @@ class QuestionVote extends Component {
   };
 
   render() {
-    console.log("Q-ID", this.props.id);
     const { author, question } = this.props;
     return (
       <div className="page">

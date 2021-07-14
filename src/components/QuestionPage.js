@@ -11,7 +11,7 @@ function QuestionPage(props) {
       <p>This question doesn't exists.</p>
     </div>);
   }
-  console.log(question);
+
   return (
     <div className="page">
       {(question.optionOne.votes.includes(authedUser) ||

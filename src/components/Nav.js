@@ -2,7 +2,6 @@ import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 
 function Nav(props) {
-  console.log(props.user);
   return (
     <nav className="nav">
       <ul>
