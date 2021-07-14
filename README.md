@@ -1,6 +1,6 @@
 # Would You Rather Project
 
-This project let's users authenticate and ask questions. They also can answer questions and see a leader board with the mose active users.
+This project let's users authenticate and ask questions. They also can answer questions and see a leader board with the most active users.
 
 ## Start the project:
 
