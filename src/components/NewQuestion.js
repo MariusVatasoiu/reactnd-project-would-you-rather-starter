@@ -41,19 +41,20 @@ class NewQuestion extends Component {
 
     return (
       <div className="page">
-        <h1>New Question</h1>
         <form onSubmit={this.handleSubmit}>
           <h3>Create new question</h3>
           <p>Complete the question:</p>
           <h4>Would you rather ...</h4>
           <input
+            className="input-text"
             value={optionOne}
             onChange={this.handleChange}
             name="optionOne"
             placeholder="Enter Option One Text Here"
           />
-          <p>OR</p>
+          <p className="center">OR</p>
           <input
+            className="input-text"
             value={optionTwo}
             onChange={this.handleChange}
             name="optionTwo"
@@ -61,7 +62,7 @@ class NewQuestion extends Component {
           />
 
           <div>
-            <button type="submit">Submit</button>
+            <button type="submit" className="btn">Submit</button>
           </div>
         </form>
       </div>

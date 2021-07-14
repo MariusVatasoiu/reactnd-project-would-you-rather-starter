@@ -15,6 +15,10 @@ class QuestionVote extends Component {
     event.preventDefault();
 
     const { answer } = this.state;
+    if (answer === "") {
+      return;
+    }
+
     const { dispatch, question } = this.props;
 
     dispatch(handleAnswerQuestion(question.id, answer));
@@ -26,32 +30,38 @@ class QuestionVote extends Component {
     return (
       <div className="page">
         <h3>{author.name} asks:</h3>
-        <img className="avatar" src={author.avatarURL} alt={author.name} />
-        <h4>Would You Rather ...</h4>
+        <div className="vote-container">
+          <div className="vote-avatar">
+            <img className="avatar" src={author.avatarURL} alt={author.name} />
+          </div>
+          <div className="vote-main">
+            <h4>Would You Rather ...</h4>
 
-        <form onSubmit={this.handleSubmit}>
-          <div>
-            <input
-              type="radio"
-              id="optionOne"
-              name="option"
-              value="optionOne"
-              onChange={this.handleChange}
-            />
-            <label htmlFor="optionOne">{question.optionOne.text}</label>
+            <form onSubmit={this.handleSubmit}>
+              <div>
+                <input
+                  type="radio"
+                  id="optionOne"
+                  name="option"
+                  value="optionOne"
+                  onChange={this.handleChange}
+                />
+                <label htmlFor="optionOne">{question.optionOne.text}</label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  id="optionTwo"
+                  name="option"
+                  value="optionTwo"
+                  onChange={this.handleChange}
+                />
+                <label htmlFor="optionTwo">{question.optionTwo.text}</label>
+              </div>
+              <button type="submit" className="btn">Submit</button>
+            </form>
           </div>
-          <div>
-            <input
-              type="radio"
-              id="optionTwo"
-              name="option"
-              value="optionTwo"
-              onChange={this.handleChange}
-            />
-            <label htmlFor="optionTwo">{question.optionTwo.text}</label>
-          </div>
-          <button type="submit">Submit</button>
-        </form>
+        </div>
       </div>
     );
   }

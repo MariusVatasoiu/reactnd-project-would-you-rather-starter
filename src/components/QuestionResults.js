@@ -13,40 +13,43 @@ class QuestionResults extends Component {
     return (
       <div className="page">
         <h3>Asked by {author.name}</h3>
-        <img className="avatar" src={author.avatarURL} alt={author.name} />
 
-        <h4>Results:</h4>
-        <section
-          className={question.optionOne.votes.includes(authedUser)
-            ? "voted"
-            : ""}
-        >
-          <p>
-            <strong>Would you rather {question.optionOne.text}?</strong>
-          </p>
-          <p>
-            <small>
-              <strong>
-                {oneVotes} out of {totalVotes} votes ({onePercentage}%)
-              </strong>
-            </small>
-          </p>
-        </section>
-        <section
-          className={question.optionTwo.votes.includes(authedUser) ? "voted"
-          : ""}
-        >
-          <p>
-            <strong>Would you rather {question.optionTwo.text}?</strong>
-          </p>
-          <p>
-            <small>
-              <strong>
-                {twoVotes} out of {totalVotes} votes ({twoPercentage}%)
-              </strong>
-            </small>
-          </p>
-        </section>
+        <div className="result-container">
+          <div className="result-avatar">
+            <img className="avatar" src={author.avatarURL} alt={author.name} />
+          </div>
+          <div className="result-main">
+            <h4>Results:</h4>
+            <section
+              className={question.optionOne.votes.includes(authedUser)
+                ? "voted"
+                : ""}
+            >
+              <p>
+                <strong>Would you rather {question.optionOne.text}?</strong>
+              </p>
+              <p>
+                <small>
+                  {oneVotes} out of {totalVotes} votes ({onePercentage}%)
+                </small>
+              </p>
+            </section>
+            <section
+              className={question.optionTwo.votes.includes(authedUser)
+                ? "voted"
+                : ""}
+            >
+              <p>
+                <strong>Would you rather {question.optionTwo.text}?</strong>
+              </p>
+              <p>
+                <small>
+                  {twoVotes} out of {totalVotes} votes ({twoPercentage}%)
+                </small>
+              </p>
+            </section>
+          </div>
+        </div>
       </div>
     );
   }

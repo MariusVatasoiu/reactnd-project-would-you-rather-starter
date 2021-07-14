@@ -4,20 +4,25 @@ function LeaderBoard(props) {
   const { top, users } = props;
   return (
     <div className="page">
-      <h1>Leader Board</h1>
-
       {top.map((u) => (<section key={u.id} className="top">
-        <h3>{users[u.id].name}</h3>
-        <img
-          className="avatar"
-          src={users[u.id].avatarURL}
-          alt={users[u.id].name}
-        />
-        <p>Answered questions: {u.answered}</p>
-        <p>Created questions: {u.created}</p>
-        <p>
-          <strong>Score: {u.total}</strong>
-        </p>
+        <div className="top-avatar">
+          <img
+            className="avatar"
+            src={users[u.id].avatarURL}
+            alt={users[u.id].name}
+          />
+        </div>
+        <div className="top-main">
+          <h3>{users[u.id].name}</h3>
+
+          <p>Answered questions: {u.answered}</p>
+          <p>Created questions: {u.created}</p>
+        </div>
+        <div className="top-score">
+          <p>
+            <strong>Score: {u.total}</strong>
+          </p>
+        </div>
       </section>))}
     </div>
   );

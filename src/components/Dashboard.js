@@ -18,7 +18,6 @@ class Dashboard extends Component {
     const { unansweredQuestions, answeredQuestions } = this.props;
     return (
       <div className="page">
-        <h1>Dashboard</h1>
         <div className="dashboard-category">
           <ul>
             <li>
