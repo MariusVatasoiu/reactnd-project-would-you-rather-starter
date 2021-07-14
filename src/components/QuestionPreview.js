@@ -28,7 +28,7 @@ function mapStateToProps({ users, questions }, { id }) {
   const question = questions[id];
 
   return {
-    author: users[question.author],
+    author: question ? users[question.author] : null,
     question: question ? question : null,
   };
 }

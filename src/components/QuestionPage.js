@@ -4,6 +4,14 @@ import QuestionResults from "./QuestionResults";
 
 function QuestionPage(props) {
   const { authedUser, question } = props;
+
+  if (question === null) {
+    return (<div className="center">
+      <h3>404</h3>
+      <p>This question doesn't exists.</p>
+    </div>);
+  }
+  console.log(question);
   return (
     <div className="page">
       {(question.optionOne.votes.includes(authedUser) ||
@@ -23,7 +31,7 @@ function mapStateToProps({ authedUser, users, questions }, props) {
 
   return {
     authedUser,
-    author: users[question.author],
+    author: question ? users[question.author] : null,
     question: question ? question : null,
   };
 }
