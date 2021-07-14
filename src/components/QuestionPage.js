@@ -3,7 +3,6 @@ import QuestionVote from "./QuestionVote";
 import QuestionResults from "./QuestionResults";
 
 function QuestionPage(props) {
-  console.log("Q-ID", props.id);
   const { authedUser, question } = props;
   return (
     <div className="page">

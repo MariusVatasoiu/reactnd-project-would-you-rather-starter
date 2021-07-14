@@ -12,7 +12,7 @@ export default function questions(state = {}, action) {
 
       return {
         ...state,
-        question,
+        [question.id]: question,
       };
     default:
       return state;
